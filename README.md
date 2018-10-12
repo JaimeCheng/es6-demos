@@ -1,10 +1,10 @@
-### ECMAScript是什么
+## ECMAScript是什么
 
 ECMAScript是一种由Ecma国际(前身为欧洲计算机制造商协会)通过ECMA-262标准化的脚本程序设计语言，这种语言在万维网上应用广泛，它往往被称为JavaScript或JScript，但实际上后两者是ECMA-262标准的实现和扩展。
 
 
 
-### ES6、ES2015……是什么?
+## ES6、ES2015……是什么?
 
 - ES6的第一个版本， 在2015年6月发布，正式名称就是《ECMAScript 2015标准》(简称 ES2015)。
 
@@ -14,13 +14,13 @@ ECMAScript是一种由Ecma国际(前身为欧洲计算机制造商协会)通过E
 
 
 
-### ES5 => ES6 转换
+## ES5 => ES6 转换
 
-#### 1. babel是什么?
+### 1. babel是什么?
 
   将新语法转换为ES5老语法的转译器(transpiler)。
 
-#### 2. 相关模块
+### 2. 相关模块
 
   - babel-core: babel的核心
   - babel-cli: babel的命令行工具
