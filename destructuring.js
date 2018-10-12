@@ -100,6 +100,5 @@ console.log('eg: ')
 console.log(eg)
 console.log('\n')
 
-console.log('变量的解构赋值的用途。\n')
 
 
