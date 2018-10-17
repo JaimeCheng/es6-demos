@@ -92,8 +92,8 @@ function add([x, y]){
   return x + y
 }
 console.log('add([1, 2]) = ' + add([1, 2]))
-
-console.log('举个列子: ')
+console.log('\n')
+console.log('举个例子: ')
 console.log('eg = [[1, 2], [3, 4]].map(([a, b]) => a + b)')
 const eg = [[1, 2], [3, 4]].map(([a, b]) => a + b)
 console.log('eg: ')
