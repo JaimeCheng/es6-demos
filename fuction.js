@@ -119,4 +119,35 @@ console.log('一旦设置了参数的默认值，函数进行声明初始化时�
 console.log('这种语法行为，在不设置参数默认值时，是不会出现的。')
 console.log('\n')
 
-console.log('2. rest参数 形式为...变量名,只能是=作为最后一个参数')
+console.log('2. rest参数 形式为...变量名,只能作为最后一个参数，length属性，不包括 rest 参数')
+console.log('rest 参数代替arguments变量的例子')
+// es6
+const sortNumbers1 = (...numbers) => numbers.sort()
+console.log(sortNumbers1(2,3,4))
+// 传统
+function sortNumbers2() {
+  return Array.prototype.slice.call(arguments).sort();
+}
+console.log(sortNumbers2(2,3))
+console.log('\n')
+
+
+console.log('3. 严格模式')
+console.log('从 ES5 开始，函数内部可以设定为严格模式')
+function doSomething(a, b) {
+  'use strict';
+  // code
+}
+console.log('ES2016 做了一点修改，规定只要函数参数使用了默认值、解构赋值、或者扩展运算符，那么函数内部就不能显式设定为严格模式，否则会报错')
+console.log('两种方法可以规避这种限制。第一种是设定全局性的严格模式，这是合法的。')
+console.log('"use strict"')
+console.log('function doSomething(a, b = a) {')
+console.log(' // code')
+console.log('}')
+console.log('第二种是把函数包在一个无参数的立即执行函数里面。')
+console.log('const doSomething = (function () {')
+console.log(' "use strict;"')
+console.log(' return function(value = 42) {')
+console.log('   return value;')
+console.log(' };')
+console.log('}());')
