@@ -151,3 +151,30 @@ console.log(' return function(value = 42) {')
 console.log('   return value;')
 console.log(' };')
 console.log('}());')
+console.log('\n')
+
+
+console.log('4. name属性，函数的name属性，返回该函数的函数名。')
+function foo () {}
+console.log(foo.name)
+console.log('如果将一个匿名函数赋值给一个变量，ES5 的name属性，会返回空字符串，而 ES6 的name属性会返回实际的函数名。')
+var f = function () {}
+console.log(f.name)
+console.log('如果将一个具名函数赋值给一个变量，则 ES5 和 ES6 的name属性都返回这个具名函数原本的名字。')
+const bar = function baz() {}
+console.log(bar.name)
+
+console.log('Function构造函数返回的函数实例，name属性的值为anonymous')
+console.log((new Function).name) // anonymous
+
+console.log('bind返回的函数，name属性值会加上bound前缀')
+function bindf () {}
+console.log(bindf.bind({}).name) // bound bindf
+console.log((function(){}).bind({}).name) // bound
+console.log('\n')
+
+
+console.log('5. 箭头函数')
+
+
+
