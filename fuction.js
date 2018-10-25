@@ -174,7 +174,66 @@ console.log((function(){}).bind({}).name) // bound
 console.log('\n')
 
 
-console.log('5. 箭头函数')
+console.log('5. 箭头函数，见arrow-function.js')
+console.log('\n')
 
 
+console.log('6. 双冒号运算符，未学习')
+console.log('\n')
 
+
+console.log('7. 尾调用优化，指某个函数的最后一步是调用另一个函数，尾调用不一定出现在函数尾部，只要是最后一步操作即可')
+function f(x) {
+  if (x > 0) {
+    return m(x)
+  }
+  return n(x);
+}
+function m(x) {}
+function n(x) {}
+console.log('尾调用优化，只保留内层函数的调用帧。如果所有函数都是尾调用，那么完全可以做到每次执行时，调用帧只有一项，这将大大节省内存。这就是“尾调用优化”的意义。')
+
+console.log('只有不再用到外层函数的内部变量，内层函数的调用帧才会取代外层函数的调用帧，否则就无法进行“尾调用优化”')
+console.log('function addOne(a){')
+console.log(' var one = 1;')
+console.log(' function inner(b){')
+console.log('   return b + one;')
+console.log(' }')
+console.log(' return inner(a)')
+console.log('}')
+console.log('上面的函数不会进行尾调用优化，因为内层函数inner用到了外层函数addOne的内部变量one。')
+console.log('\n')
+
+
+console.log('尾递归优化函数调用自身，称为递归。如果尾调用自身，就称为尾递归')
+console.log('递归非常耗费内存，因为需要同时保存成千上百个调用帧，很容易发生“栈溢出”错误。但尾递归只存在一个调用帧，所以永远不会发生“栈溢出”错误。')
+console.log('计算 Fibonacci 数列求和')
+// 非尾递归
+function Fibonacci (n) {
+  if ( n <= 1 ) {return 1};
+
+  return Fibonacci(n - 1) + Fibonacci(n - 2);
+}
+
+console.log(Fibonacci(10)) // 89
+// console.log(Fibonacci(100)) // 堆栈溢出
+// console.log(Fibonacci(500)) // 堆栈溢出
+
+// 改写尾递归
+function Fibonacci2 (n , ac1 = 1 , ac2 = 1) {
+  if( n <= 1 ) {return ac2};
+
+  return Fibonacci2 (n - 1, ac2, ac1 + ac2);
+}
+console.log(Fibonacci2(10)) // 89
+console.log(Fibonacci2(1000)) // 7.0330367711422765e+208
+// console.log(Fibonacci2(10000)) // Maximum call stack size exceeded
+
+console.log('ES6 的尾调用优化只在严格模式下开启，正常模式是无效的,在正常模式下，函数内部有两个变量')
+console.log('func.arguments：返回调用时函数的参数。')
+console.log('func.caller：返回调用当前函数的那个函数。')
+console.log('尾调用优化发生时，函数的调用栈会改写，因此上面两个变量就会失真。严格模式禁用这两个变量，所以尾调用模式仅在严格模式下生效。')
+console.log('\n')
+
+
+console.log('8. ES2017 允许函数的最后一个参数有尾逗号,这样的规定也使得，函数参数与数组和对象的尾逗号规则，保持一致了。')
