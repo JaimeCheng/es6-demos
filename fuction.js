@@ -174,11 +174,11 @@ console.log((function(){}).bind({}).name) // bound
 console.log('\n')
 
 
-console.log('5. 箭头函数，见arrow-function.js')
+console.log('5. 箭头函数，见function-arrow.js')
 console.log('\n')
 
 
-console.log('6. 双冒号运算符，未学习')
+console.log('6. 双冒号运算符，见 call-apply-bind.js')
 console.log('\n')
 
 
